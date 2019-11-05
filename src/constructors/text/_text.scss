@@ -1,0 +1,11 @@
+// В этом файле должны быть стили для БЭМ-блока text, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.text {
+  $block-name: &; // #{$block-name}__element
+
+  margin: 0;
+}

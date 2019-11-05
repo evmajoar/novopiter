@@ -1,0 +1,35 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( slider )
+
+-
+  var sliderClass = 'slider';
+
+  var slider = {
+    controls: {
+      class: sliderClass + '__controls',
+    },
+    button: {
+      class: sliderClass + '__button',
+      modNext: sliderClass + '__button--prev',
+      modPrev: sliderClass + '__button--next',
+    },
+    dots: {
+      class: sliderClass + '__dots'
+    }
+  }
+
+mixin dotsContainer()
+  +wrapper()( class=slider.dots.class )
+
+mixin arrowPrev()
+  +button( "Предыдущий слайд", "slider" )( class=slider.button.class + " " + slider.button.modNext )
+    +icon( "arrow-left", 24, 24 )
+
+mixin arrowNext()
+  +button( "Предыдущий слайд", "slider" )( class=slider.button.class + " " + slider.button.modPrev )
+    +icon( "arrow-right", 24, 24 )
+
+mixin sliderControls()
+  +arrowPrev()
+  +dotsContainer()
+  +arrowNext()
+

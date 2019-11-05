@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( title )
+
+mixin title( text, tagName )
+
+  //- Принимает:
+      text     {string} - текст заголовка
+      tagName  {string} - тег
+
+  //- Вызов:
+      +title( "Заголовок", "h2" )
+
+  - var errorMessage = "Не указан тег заголовка";
+
+  //- если уаказан tagName
+  if ( typeof tagName !== 'undefined' && tagName !== '' && tagName  )
+    #{tagName}( class=className + allMods )&attributes( attributes )
+      block
+      != text
+
+  //- иначе ошибка
+  else
+    p.error=errorMessage

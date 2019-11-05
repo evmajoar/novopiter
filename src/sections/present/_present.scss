@@ -1,0 +1,105 @@
+// В этом файле должны быть стили для БЭМ-блока present, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.present {
+  align-items: start;
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  @media (min-width: $screen-xl) {
+    padding-top: 82px;
+    padding-bottom: 95px;
+    position: relative;
+  }
+
+  &__container {
+    @include row( xs, 1 );
+    @include row( xl, 2, equal, 111px);
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: $screen-xl) {
+      position: relative;
+
+      &::after {
+        @include pseudo;
+        top: 8px;
+        right: 13px;
+        width: 619px;
+        height: 315px;
+        background-image: url("#{$imagesDir}gift.svg");
+        background-size: 619px 315px;
+        background-position-x: 30px;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__title {
+    @include col( xl, 1, 2, 1, 2);
+    text-align: center;
+    margin: 0;
+
+    @media (min-width: $screen-xl) {
+      font-size: 28px;
+      text-align: left;
+    }
+  }
+
+  &__text {
+    @include col( xl, 1, 2, 2, 3);
+    margin-top: 24px;
+    position: relative;
+    padding-bottom: 180px;
+
+    @media (min-width: $screen-xl) {
+      padding-bottom: 0;
+      margin-top: 18px;
+    }
+
+    &::after {
+      @include pseudo;
+      bottom: 5px;
+      left: calc(50% - 143px);
+      width: 285px;
+      height: 170px;
+      background-image: url("#{$imagesDir}gift.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @media (min-width: $screen-xl) {
+        display: none;
+      }
+    }
+  }
+
+  &__form {
+    @include col( xl, 1, 2, 3, -4);
+    @include row( xl, 2, equal, 34px, 0);
+    text-align: center;
+
+    @media (min-width: $screen-xl) {
+      margin-top: 25px;
+    }
+  }
+
+  &__field-text {
+    margin-bottom: 0;
+
+    .field-text__name {
+      @include hide-text;
+    }
+  }
+
+  &__button {
+    margin-top: 21px;
+    max-width: 100%;
+
+    @media (min-width: $screen-xl) {
+      margin-top: 0;
+    }
+  }
+}

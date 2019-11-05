@@ -1,0 +1,28 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( main-nav )
+
+-
+  var mainNavClass = 'main-nav'
+
+  var mainNav = {
+    burger: {
+      class: mainNavClass + '__toggler'
+    },
+    list: {
+      class: mainNavClass + '__list'
+    },
+    listItem: {
+      class: mainNavClass + '__item'
+    },
+    link: {
+      class: mainNavClass + '__link'
+    }
+  }
+
+mixin main-nav()
+
+  //- Вызов:
+      +main-nav()
+
+  nav( id=mainNavClass.replace('main-', ''), class=mainNavClass )&attributes( attributes )
+    +burger( 'Показать главное меню', mainNavClass.replace('main-', ''), mainNavClass + '--open' )( class=mainNav.burger.class )
+    block

@@ -1,0 +1,68 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( list )
+
+mixin list( isNum, mods )
+
+  //- Принимает:
+      isNum {bool} - если true, то ol
+
+  //- Вызов:
+      +list() - ненумерованный список
+      +list( true ) - нумерованный список
+
+  -
+    var className = 'list'; // list - класс конструктора, по умолчанию указана пустая строка
+
+    // список модификаторов
+    var allMods = '';
+    if( typeof( mods ) !== 'undefined' && mods ) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  //- если true - нумерованый список
+  if( isNum === true )
+    ol( class=className + allMods )&attributes( attributes )
+      block
+
+  //- иначе ненумерованый список
+  else
+    ul( class=className + allMods )&attributes( attributes )
+      block
+
+
+
+mixin list-item( text, mods )
+
+  //- Принимает:
+      text {string} - текст
+      mods {string} - модификаторы
+
+  //- Вызов:
+      +list-item() - пустой элемент
+      +list-item( "Текст" )
+
+  -
+    var className = ''; // list__item - класс конструктора, по умолчанию указана пустая строка
+
+    // список модификаторов
+    var allMods = '';
+    if ( typeof( mods ) !== 'undefined' && mods ) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  //- если тектс указан
+  if ( typeof text !== 'undefined' && text !== '' && text )
+    li( class=className + allMods )&attributes( attributes )!= text
+
+  //- иначе пустой элемент
+  else
+    li( class=className + allMods )&attributes( attributes )
+      block
+
+
+

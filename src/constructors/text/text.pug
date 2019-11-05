@@ -1,0 +1,34 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( text )
+
+mixin text( text, mods )
+
+  //- Принимает:
+      text {string} - текст
+      mods {string} - модификаторы
+
+  //- Вызов:
+      +text( "Текст" )
+      +text( "Текст", "b", "blue" )
+
+  -
+    var className = ''; // text - класс конструктора, по умолчанию указана пустая строка
+    var errorMessage = "Не указан текст";
+
+    // список модификаторов
+    var allMods = '';
+    if( typeof mods !== 'undefined' && mods ) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  //- если text
+  if( typeof text !== 'undefined' && text !== '' && text )
+    p( class=className + allMods )&attributes( attributes )
+      block
+      != text
+
+  //- иначе ошибка
+  else
+    p.error=errorMessage

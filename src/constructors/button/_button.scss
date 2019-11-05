@@ -1,0 +1,131 @@
+// В этом файле должны быть стили для БЭМ-блока button, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.button {
+  $block-name:                &; // #{$block-name}__element
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 254px;
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  font-family: inherit;
+  font-size: $font-size;
+  font-weight: 600;
+  color: inherit;
+  line-height: $line-height;
+  text-decoration: none;
+  text-transform: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: $transition-time;
+  box-shadow: $button-box-shadow;
+
+  &:active {
+    box-shadow: none;
+  }
+
+  &:hover {
+    @media (min-width: $screen-xl) {
+      box-shadow: none;
+    }
+  }
+
+  // &:visited {
+  //   color: $text-color;
+  // }
+  //
+  //&:active,
+  //&:focus {
+  //  @include field-focus;
+  //}
+
+
+  //&--pink {
+  //  background-color: $color-pink;
+  //  color: $text-color-revers;
+  //
+  //  &:active {
+  //    background-color: $gray-darker;
+  //  }
+  //
+  //  &:hover {
+  //    @media (min-width: $screen-xl) {
+  //      background-color: $gray-darker;
+  //    }
+  //  }
+  //}
+  //
+  //
+  //&--grey {
+  //  background-color: $gray-darker;
+  //  color: $white;
+  //
+  //  &:active {
+  //    background-color: $color-pink;
+  //  }
+  //
+  //  &:hover {
+  //    @media (min-width: $screen-xl) {
+  //      background-color: $color-pink;
+  //    }
+  //  }
+  //}
+
+  &--blue
+  {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+
+  &--red
+  {
+    background-color: $color-red;
+    color: $color-white;
+    box-shadow: none;
+  }
+
+  &--white
+  {
+    background-color: $color-white;
+    color: $color-blue;
+  }
+
+  &--transparent {
+    background-color: transparent;
+    color: $color-white;
+    box-shadow: none;
+  }
+
+  &--border {
+    &-white {
+      border: 1px solid $color-white;
+      min-height: 32px;
+      font-size: 14px;
+      max-width: 170px;
+    }
+  }
+
+  &--disabled,
+  &:disabled
+  {
+    opacity: $opacity;
+    cursor: not-allowed;
+    @at-root a.btn--disabled
+    {
+      pointer-events: none;
+    }
+  }
+}

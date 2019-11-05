@@ -1,0 +1,9 @@
+// В этом файле должны быть стили для БЭМ-блока img, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.image {
+  $block-name: &; // #{$block-name}__element
+}

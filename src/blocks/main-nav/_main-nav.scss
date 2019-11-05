@@ -1,0 +1,43 @@
+// В этом файле должны быть стили для БЭМ-блока main-nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.main-nav {
+  $block-name:                &; // #{$block-name}__element
+
+  &__list {
+    display: none;
+
+    @media (min-width: $screen-xl) {
+      display: flex;
+      flex-wrap: nowrap;
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    @media (min-width: $screen-xl) {
+      margin-right: 25px;
+    }
+
+    &:last-child {
+      @media (min-width: $screen-xl) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-white;
+  }
+
+  &__toggler {
+    @media (min-width: $screen-xl) {
+      display: none;
+    }
+  }
+}

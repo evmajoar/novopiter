@@ -1,0 +1,20 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( link )
+
+mixin link( rel, href, type, sizes, color  )
+
+  //- Принимает:
+      rel    {string}   - значение атрибута rel
+      href   {integer}  - значение атрибута href
+      type   {string}   - значение атрибута type
+      size   {string}   - значение атрибута size
+      value  {string}   - значение атрибута color
+
+  //- Вызов:
+      +meta( "mask-icon", "/favicon/safari-pinned-tab.svg", false, false, "#fff" )
+
+  - var errorMessage = "Укажите значение(я) атрибута(ов)"
+
+  if ( typeof ( rel ) !== 'undefined' && rel !== '' && typeof ( href ) !== 'undefined' && href !== '' )
+    link( rel=rel, href=href, type=type, sizes=sizes, color=color )
+  else
+    link( error=errorMessage )

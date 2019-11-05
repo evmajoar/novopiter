@@ -1,0 +1,34 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( wrapper )
+
+mixin element( text, tagName, mods )
+
+  //- Принимает:
+      text {string} - текст
+      tagName {string} - имя тега
+      mods {string} - модификаторы
+
+  //- Вызов:
+      +element( "Текст" )
+
+  -
+    var className = ''; // element - класс конструктора, по умолчанию указана пустая строка
+    var errorMessage = "Отсутствует текст или не указан тег";
+
+    // список модификаторов
+    var allMods = '';
+    if( typeof mods !== 'undefined' && mods ) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  //- если указан текст и тег
+  if( typeof text !== 'undefined' && text !== '' && text && typeof tagName !== 'undefined' && tagName !== '' && tagName )
+    #{tagName}( class=className + allMods )&attributes( attributes )
+      block
+      != text
+
+  //- иначе ошибка
+  else
+    p.error=errorMessage

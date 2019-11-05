@@ -1,0 +1,330 @@
+// Общие стили тегов.
+// Подключение шрифтов.
+// Типографика.
+
+@import "variables";
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('#{$fontsDir}avenir-next/AvenirNextCyr-Thin.woff2') format('woff2'),
+  url('#{$fontsDir}avenir-next/AvenirNextCyr-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('#{$fontsDir}avenir-next/AvenirNextCyr-UltraLight.woff2') format('woff2'),
+  url('#{$fontsDir}avenir-next/AvenirNextCyr-UltraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('#{$fontsDir}avenir-next/AvenirNextCyr-Light.woff2') format('woff2'),
+  url('#{$fontsDir}avenir-next/AvenirNextCyr-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('#{$fontsDir}avenir-next/AvenirNextCyr-Regular.woff2') format('woff2'),
+  url('#{$fontsDir}avenir-next/AvenirNextCyr-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('#{$fontsDir}avenir-next/AvenirNextCyr-Medium.woff2') format('woff2'),
+  url('#{$fontsDir}avenir-next/AvenirNextCyr-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('#{$fontsDir}avenir-next/AvenirNextCyr-Demi.woff2') format('woff2'),
+  url('#{$fontsDir}avenir-next/AvenirNextCyr-Demi.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('#{$fontsDir}avenir-next/AvenirNextCyr-Bold.woff2') format('woff2'),
+  url('#{$fontsDir}avenir-next/AvenirNextCyr-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvenirNext';
+  src: url('#{$fontsDir}avenir-next/AvenirNextCyr-Heavy.woff2') format('woff2'),
+  url('#{$fontsDir}avenir-next/AvenirNextCyr-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  word-break: break-word;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-align: left;
+  color: $text-color;
+  background-color: $body-background;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+[tabindex='-1']:focus {
+  outline: 0 !important;
+}
+
+// Коррекция для кликабельных элементов с указанной ролью в iOS
+[role='button'] {
+  cursor: pointer;
+}
+
+// Мы любим Сафари (на самом деле, нет).
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+a,
+button,
+[role='button'],
+input,
+label,
+select,
+textarea {
+  touch-action: manipulation; // Стилевая коррекция 300ms задержки (для поддерживающих браузеров)
+  margin: 0;  // Убираем margin в Firefox и Safari
+  font: inherit;
+  color: inherit;
+}
+
+button,
+input {
+  overflow: visible;    // Покажем торчащее в Edge
+  text-transform: none; // Уберём наследование text transform в Firefox
+  color: inherit;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; // Коррекция проблем стилизации для Safari
+  font: inherit;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox; // Коррекция для Mobile Safari (https://github.com/twbs/bootstrap/issues/11266)
+}
+
+textarea {
+  overflow: auto;   // Удаление верт. скролла в IE.
+  resize: vertical; // Правильное изменение размеров
+}
+
+svg {
+  fill: currentColor;
+
+  a &,
+  button & {
+    pointer-events: none; // Мы любим Edge, это браузер! (почти)
+  }
+
+  &:not(:root) {
+    overflow: hidden; // Скрыть выступающее за границы в IE
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  //width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  //color: $link-color;
+  background-color: transparent;
+  transition: all $transition-time;
+
+  //&:hover,
+  //&:focus {
+  //  color: $link-color--hover;
+  //}
+
+  //&[href^="tel:"] {
+  //
+  //  // На больших экранах телефоны-ссылки делаем обычным текстом
+  //  @media (min-width: $screen-xl) {
+  //    white-space: nowrap;
+  //    pointer-events: none;
+  //    text-decoration: inherit;
+  //    color: inherit;
+  //  }
+  //}
+}
+
+hr {
+  box-sizing: content-box; // Проблема Firefox
+  height: 0;               // Проблема Firefox
+  overflow: visible;       // Проблема Edge и IE
+  margin-top: $typo-margin-vertical * 2;
+  margin-bottom: $typo-margin-vertical * 2;
+  border: 0;
+  border-top: 1px solid $field-border-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-family: $font-family;
+  font-weight: 700;
+  //line-height: 1.2;
+  color: currentColor;
+}
+
+p,
+ul,
+ol,
+dl,
+table,
+blockquote,
+pre,
+address,
+figure {
+  margin-top: 0;
+  margin-bottom: $typo-margin-vertical;
+}
+
+p {
+  // http://clagnut.com/blog/2395
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+ul,
+ol {
+  margin-bottom: $typo-margin-vertical;
+  padding-left: 1.5em;
+
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+li {
+  line-height: inherit;
+}
+
+small {
+  font-size: $font-size-sm;
+}
+
+sub,
+sup {
+  font-size: $font-size-sm;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+blockquote {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+code,
+kbd,
+pre {
+  font-family: $font-family--monospace;
+}
+
+code {
+  padding: 0.06em 0.3em;
+  color: $text-color;
+  background-color: rgba(#000, 0.08);
+  border-radius: $field-border-radius;
+}
+
+kbd {
+  padding: 0.06em 0.3em;
+  color: $text-color;
+  background-color: $gray-lightest;
+  border-radius: $field-border-radius;
+
+  kbd {
+    padding: 0;
+  }
+}
+
+pre {
+  display: block;
+  width: 100%;
+  margin-bottom: $typo-margin-vertical;
+  overflow-x: auto;
+  tab-size: 2;
+  background-color: rgba(#000, 0.08);
+
+  code {
+    background: transparent;
+  }
+}

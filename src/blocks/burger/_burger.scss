@@ -1,0 +1,76 @@
+// В этом файле должны быть стили для БЭМ-блока burger, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.burger {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 18px;
+  border: none;
+  padding: 0;
+  height: 18px;
+  background: transparent;
+  user-select: none;
+  cursor: pointer;
+
+  > span { // stylelint-disable-line  selector-combinator-blacklist
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 100%;
+    height: $toggle-part-height;
+    vertical-align: middle;
+    font-size: 0;
+    color: transparent;
+    border-radius: 2px;
+    background: $toggle-part-bg-color;
+    transition: background $transition-time $transition-time;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: $toggle-part-height;
+      background: $toggle-part-bg-color;
+      transform-origin: 50% 50%;
+      border-radius: 2px;
+      transition: top $transition-time $transition-time, transform $transition-time;
+    }
+
+    &:before {
+      top: -5px;
+    }
+
+    &:after {
+      top: 5px;
+    }
+  }
+
+  &--close {
+    > span { // stylelint-disable-line  selector-combinator-blacklist
+      transition: background $transition-time 0s;
+      background: transparent;
+
+      &:before,
+      &:after {
+        top: 0;
+        transition: top $transition-time, transform $transition-time $transition-time;
+      }
+
+      &:before {
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+
+      &:after {
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( button )
+
+//- Создаем кнопку
+mixin button( text, mods, isInput )
+
+  //- Принимает:
+      text {string} - текст кнопки
+      mods {string} - список модификаторов
+      isInput {bool} - флаг «это тег input»
+
+  //- Вызов:
+      +button( "Кнопка-input", "", true )
+      +button( "Кнопка-button", "success")
+
+  -
+    var className = 'button'; // button - класс конструктора, по умолчанию указана пустая строка
+
+    // список модификаторов
+    var allMods = '';
+    if( typeof( mods ) !== 'undefined' && mods ) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  //- если передан isInput и он true, это input
+  if ( typeof isInput !== 'undefined' && isInput )
+    input( class=className + allMods, value=text, type='button' )&attributes( attributes )
+
+  //- иначе это button
+  else
+    button( class=className + allMods )&attributes( attributes )
+      block
+      span!= text

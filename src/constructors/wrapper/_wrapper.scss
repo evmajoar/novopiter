@@ -1,0 +1,9 @@
+// В этом файле должны быть стили для БЭМ-блока wrapper, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.wrapper {
+  $block-name: &; // #{$block-name}__element
+}

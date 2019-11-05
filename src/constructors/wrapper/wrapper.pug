@@ -1,0 +1,19 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( wrapper )
+
+mixin wrapper( tagName )
+
+  //- Принимает:
+      tagName  {string} - имя тега обертки
+
+  //- Вызов:
+      +wrapper( "p" )
+
+  //- если tagName - устанавливаем тег
+  if( typeof tagName !== 'undefined' && tagName !== '' && tagName )
+    #{tagName}&attributes( attributes )
+      block
+
+  //- иначе div
+  else
+    div&attributes( attributes )
+      block

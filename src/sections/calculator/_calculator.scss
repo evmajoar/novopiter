@@ -1,0 +1,109 @@
+// В этом файле должны быть стили для БЭМ-блока calculator, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.calculator {
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  @media (min-width: $screen-xl) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &__container {
+    @include row( xs, 1 );
+    @include row( xl, 1, equal, 30px, 0 );
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: $screen-xl) {
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    text-align: center;
+
+    @media (min-width: $screen-xl) {
+      font-size: 28px;
+    }
+  }
+
+  &__form {
+    margin-top: 24px;
+  }
+
+  &__form-fieldset {
+    border: 0;
+    legend {
+      @include hide-text;
+    }
+  }
+
+  &__result {
+    @include row( xs, 2, equal, 24px, false );
+    @include row( xд, 2, equal, 34px );
+
+    @media (min-width: $screen-xl) {
+      max-width: 100%;
+    }
+
+    &-title {
+      @include col( xs, 1, 3);
+      @include field-name;
+    }
+
+    &-field {
+      &--small {
+        font-size: 14px;
+        color: $color-grey;
+        margin-bottom: 0;
+
+        input {
+          font-size: 16px;
+
+          &:focus {
+            @include placeholder-not-hidden;
+          }
+
+          &[readonly] {
+            cursor: pointer;
+            background-color: $color-white;
+          }
+        }
+      }
+
+      &--check {
+        color: $color-green;
+
+        input {
+          border-color: $color-green;
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    @include row( xs, 2, equal, 24px, false );
+    margin-top: 28px;
+
+    @media (min-width: $screen-xl) {
+      max-width: 100%;
+    }
+  }
+
+  &__button {
+
+    &:first-of-type {
+      @include col( xs, 1, 2 );
+    }
+
+    &:last-of-type {
+      @include col( xs, 2, 3 );
+    }
+  }
+}

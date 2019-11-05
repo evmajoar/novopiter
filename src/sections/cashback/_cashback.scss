@@ -1,0 +1,123 @@
+// В этом файле должны быть стили для БЭМ-блока cashback, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.cashback {
+  padding-top: 70px;
+  padding-bottom: 325px;
+  position: relative;
+
+  @media (min-width: $screen-md) {
+    padding-bottom: 70px;
+  }
+
+  @media (min-width: $screen-xl) {
+    padding-top: 115px;
+    padding-bottom: 135px
+  }
+
+  &::after {
+    @include pseudo;
+    bottom: 70px;
+    right: 0;
+    width: 341px;
+    height: 239px;
+    background-image: url("#{$imagesDir}family.svg");
+    background-size: 341px 239px;
+    background-repeat: no-repeat;
+    background-position-x: 30px;
+
+    @media (min-width: $screen-md) {
+      top: 120px
+    }
+
+    @media (min-width: $screen-xl) {
+      display: none;
+    }
+  }
+
+  &__container {
+    @include row( xs, 1 );
+    @include row( xl, 2, equal );
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    margin-right: auto;
+
+    &::after {
+      @media (min-width: $screen-xl) {
+        @include pseudo;
+        right: 0;
+        background-image: url("#{$imagesDir}family.svg");
+        background-repeat: no-repeat;
+        background-position-x: 30px;
+        top: -20px;
+        background-size: 450px 315px;
+        width: 480px;
+        height: 315px;
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin: 0;
+
+    br {
+      @media (min-width: $screen-xl) {
+        display: none;
+      }
+    }
+
+    @media (min-width: $screen-xl) {
+      text-align: left;
+      padding-right: 145px;
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    @include col( xl, 1, 2, 2, 3 );
+    margin-top: 24px;
+
+    br {
+      @media (min-width: $screen-xl) {
+        display: none;
+      }
+    }
+
+    @media (min-width: $screen-xl) {
+      padding-right: 58px;
+    }
+  }
+
+  &__buttons {
+    @include col( xl, 1, 2, 3, 4 );
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  &__button {
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: $screen-xl) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &:last-of-type {
+      margin-top: 5px;
+      background-color: transparent;
+      color: $color-red;
+      box-shadow: none;
+
+      @media (min-width: $screen-xl) {
+        justify-content: flex-start;
+        margin-top: 7px;
+      }
+    }
+  }
+}

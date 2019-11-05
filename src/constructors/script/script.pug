@@ -1,0 +1,17 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( scripts )
+
+mixin script( src )
+
+  //- Принимает:
+      src   {string}   - значение атрибута src
+      attr  {integer}  - атрибуты async, defer и т.п.
+
+  //- Вызов:
+      +script( "script/link", "async defer" )
+
+  - var errorMessage = "Укажите значение(я) атрибута(ов)"
+
+  if ( typeof ( src ) !== 'undefined' && src !== '' )
+    script( src=src )
+  else
+    script( error=errorMessage )

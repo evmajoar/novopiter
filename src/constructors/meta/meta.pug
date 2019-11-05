@@ -1,0 +1,21 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( meta )
+
+mixin meta( property, content, value )
+
+  //- Принимает:
+      property  {string}  - значение атрибута name или property
+      content   {integer} - значение атрибута content
+      value     {bool}    - если false, то property иначе name
+
+  //- Вызов:
+      +meta( "name", "description", "Описание сайта" )
+
+  - var errorMessage = "Укажите значение атрибута(ов)"
+
+  if ( typeof ( property ) !== 'undefined' && property !== '' && typeof ( content ) !== 'undefined' && content !== '' )
+    if ( value !== false )
+      meta( name=property, content=content )
+    else
+      meta( property=property, content=content )
+  else
+    meta( error=errorMessage )

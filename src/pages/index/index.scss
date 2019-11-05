@@ -1,0 +1,21 @@
+// Основной шаблон
+@import "../../layouts/layout.scss";
+
+// Блоки
+@import "../../blocks/burger/burger.scss";
+@import "../../blocks/accordion/accordion.scss";
+@import "../../blocks/logo/logo.scss";
+@import "../../blocks/main-nav/main-nav.scss";
+@import "../../blocks/slider/slider.scss";
+
+// Секции
+@import "../../sections/page-header/page-header.scss";
+@import "../../sections/page-main/page-main.scss";
+@import "../../sections/page-footer/page-footer.scss";
+@import "../../sections/advantages/advantages.scss";
+@import "../../sections/cashback/cashback.scss";
+@import "../../sections/calculator/calculator.scss";
+@import "../../sections/faq/faq.scss";
+@import "../../sections/present/present.scss";
+@import "../../sections/partners/partners.scss";
+@import "../../sections/feedback/feedback.scss";

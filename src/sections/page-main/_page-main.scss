@@ -1,0 +1,22 @@
+// В этом файле должны быть стили для БЭМ-блока page-main, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.page-main {
+  $block-name: &; // #{$block-name}__element
+
+  &__wrapper {
+    @include row( xl, 2, equal, 100px );
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: $screen-xl) {
+      padding-top: 82px;
+      padding-bottom: 83px;
+      align-items: start;
+    }
+  }
+}

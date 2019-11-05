@@ -1,0 +1,19 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( section )
+
+mixin section( tagName, mods )
+
+  //- Принимает:
+      tagName {string} - название тега
+      mods {string} - модификаторы через запятую
+
+  //- Вызов:
+      +section( "section" )
+      +section( "section", "background" )
+
+
+  if ( typeof tagName !== 'undefined' && tagName !== '' && tagName )
+    #{tagName}&attributes( attributes )
+      block
+  else
+    section&attributes( attributes )
+      block

@@ -1,0 +1,24 @@
+// Основные стили, библиотеки и другое
+@import "../libraries/common.scss";
+@import "../sections/page/page.scss";
+@import "../libraries/print.scss";
+@import "../libraries/animations.scss";
+
+// Блоки-конструкторы
+@import "../constructors/section/section.scss";
+@import "../constructors/wrapper/wrapper.scss";
+@import "../constructors/element/element.scss";
+@import "../constructors/title/title.scss";
+@import "../constructors/list/list.scss";
+@import "../constructors/text/text.scss";
+@import "../constructors/href/href.scss";
+@import "../constructors/image/image.scss";
+@import "../constructors/icon/icon.scss";
+@import "../constructors/button/button.scss";
+@import "../constructors/form/form.scss";
+@import "../constructors/field-text/field-text.scss";
+
+// Секции
+@import "../sections/page-header/page-header.scss";
+@import "../sections/page-main/page-main.scss";
+@import "../sections/page-footer/page-footer.scss";

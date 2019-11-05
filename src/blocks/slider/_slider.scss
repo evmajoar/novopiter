@@ -1,0 +1,98 @@
+// В этом файле должны быть стили для БЭМ-блока slider, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.slider {
+  $block-name: &; // #{$block-name}__element
+
+  @media (min-width: $screen-xl) {
+    width: calc(100% - 106px);
+    margin: 0 auto;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: $screen-xl) {
+      justify-content: center;
+      position: relative;
+    }
+  }
+
+  &__button {
+    background: none;
+    box-shadow: none;
+    width: auto;
+    min-height: 1px;
+    flex-grow: 0;
+
+    @media (min-width: $screen-xl) {
+      position: absolute;
+      top: -83px;
+    }
+
+    span {
+      font-size: 0;
+    }
+
+    &--prev {
+      @media (min-width: $screen-xl) {
+        left: 0;
+      }
+    }
+
+    &--next {
+      @media (min-width: $screen-xl) {
+        right: 0;
+      }
+    }
+  }
+
+  &__dots {
+    .slick-dots {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+      @include ul-reset;
+    }
+
+    li {
+      display: flex;
+      margin-right: 12px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.slick-active {
+        button {
+          width: 14px;
+          height: 14px;
+          background-color: $color-blue;
+        }
+      }
+    }
+
+    button {
+      background-color: #ECF2F9;
+      width: 10px;
+      height: 10px;
+      font-size: 0;
+      border-radius: 50%;
+      text-decoration: none;
+      text-transform: none;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      user-select: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+}

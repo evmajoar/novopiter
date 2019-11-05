@@ -1,0 +1,109 @@
+//- Стандартный шаблон страницы
+
+//- Конструкторы
+include ../constructors/meta/meta.pug
+include ../constructors/link/link.pug
+include ../constructors/script/script.pug
+include ../constructors/section/section.pug
+include ../constructors/wrapper/wrapper.pug
+include ../constructors/element/element.pug
+include ../constructors/title/title.pug
+include ../constructors/list/list.pug
+include ../constructors/text/text.pug
+include ../constructors/href/href.pug
+include ../constructors/image/image.pug
+include ../constructors/icon/icon.pug
+include ../constructors/button/button.pug
+include ../constructors/form/form.pug
+include ../constructors/field-text/field-text.pug
+
+//- Блоки
+include  ../blocks/burger/burger.pug
+
+doctype html
+
+//- Настройки
+-
+  var setting = {
+    lang: "ru",
+    charset: "utf-8",
+    siteName: "Название сайта",
+    siteURL: "http://localhost:8080/",
+    imagesSrc: "images/",
+    iconSrc: "icons/",
+    faviconSrc: "favicon/"
+  }
+
+html( class="page no-js", lang=setting.lang )
+  head
+    meta( charset=setting.charset )
+    +meta( "viewport", "width=device-width, initial-scale=1" )
+    +meta( "language", setting.lang.toUpperCase() )
+
+    //- Edge и ряд мобильных браузеров слишком умны. Отключим это.
+    +meta( "format-detection", "telephone=no" )
+    +meta( "format-detection", "date=no" )
+    +meta( "format-detection", "email=no" )
+    +meta( "notranslate", "google" )
+
+    //- Фавиконки (https://realfavicongenerator.net)
+    +link( "apple-touch-icon", setting.faviconSrc + "apple-touch-icon.png", false, "180x180" )
+    +link( "icon", setting.faviconSrc + "favicon-32x32.png", "image/png", "32x32" )
+    +link( "icon", setting.faviconSrc + "favicon-16x16.png", "image/png", "16x16" )
+    +link( "shortcut icon", setting.faviconSrc + "favicon.ico", "image/x-icon" )
+    +link( "manifest", setting.faviconSrc + "site.webmanifest" )
+    +link( "mask-icon", setting.faviconSrc + "safari-pinned-tab.svg", false, false, "#d03030" )
+    +meta( "application-name", setting.siteName )
+    +meta( "apple-mobile-web-app-title", setting.siteName )
+    +meta( "theme-color", "#fff" )
+    +meta( "apple-mobile-web-app-status-bar-style", "#fff" )
+    +meta( "msapplication-TileColor", "#fff" )
+    +meta( "msapplication-TileColor", setting.faviconSrc + "browserconfig.xml" )
+
+    block meta
+
+    block head
+
+      //- Предзагрузка CDN
+      +link( "dns-prefetch", "//cdnjs.cloudflare.com/" )
+      +link( "preconnect", "//cdnjs.cloudflare.com/" )
+
+      //- Плагины
+      +link( "stylesheet", "//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" )
+
+      //- Основные стили
+      +link( "stylesheet", "styles/main.min.css" )
+
+  body
+    noscript У вас отключен JavaScript. Функциональность сайта ограничена. Пожалуйста, включите JavaScript и перезагрузите страницу.
+
+    +wrapper()( class="page__inner" )
+
+      //- Хедер
+      include ../sections/page-header/page-header.pug
+      +section( "header", false )( class=pageHeaderClass )
+        +wrapper( "div" )( class=pageHeader.container.class )
+          block header
+
+      //- Контент
+      include ../sections/page-main/page-main.pug
+      +section( "main", false )( class=pageMainClass )
+        block main
+
+      //- Футер
+      include ../sections/page-footer/page-footer.pug
+      +section( "footer", false )( class=pageFooterClass )
+        +wrapper( "div" )( class=pageFooter.container.class )
+          block footer
+
+    block bottom
+
+      //- Библиотеки
+      +script( "//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" )
+
+      //- Плагины
+      +script( "//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" )
+      +script( "//cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js" )
+
+      //- Основные скрипты
+      +script( "scripts/main.min.js" )

@@ -1,0 +1,14 @@
+// В этом файле должны быть стили для БЭМ-блока href, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.link {
+  $block-name: &; // #{$block-name}__element
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}

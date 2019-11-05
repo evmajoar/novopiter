@@ -1,0 +1,391 @@
+//- Главная страница
+
+extends ../../layouts/layout.pug
+
+block meta
+
+  //- Метаданные
+  -
+    var meta = {
+      title: "Сео заголовок сайта",
+      description: "Описание сайта",
+      siteURN: "index.html"
+    }
+
+  title=meta.title + " | " + setting.siteName
+  +meta( "description", meta.description )
+
+  //- Разметка Open Graph
+  +meta( "og:title", meta.title, false )
+  +meta( "og:description", meta.description, false )
+  +meta( "og:type", "website", false )
+  +meta( "og:url", setting.siteURL + meta.siteURN, false )
+  +meta( "og:locale", setting.lang + '_' + setting.lang.toUpperCase(), false )
+  +meta( "og:image", setting.imagesSrc + "poster.png", false )
+  +meta( "og:image:type", "image/png", false )
+  +meta( "og:image:width", "512", false )
+  +meta( "og:image:height", "512", false )
+  +meta( "og:site_name", setting.siteName, false )
+
+  //- Разметка Twitter Card
+  +meta( "twitter:card", "summary" )
+  +meta( "twitter:title", meta.title )
+  +meta( "twitter:description", meta.description )
+  +meta( "twitter:image", setting.imagesSrc + "poster.png" )
+  +meta( "twitter:site", setting.siteName )
+
+block prepend head
+  +link( "canonical", setting.siteURL + meta.siteURN )
+
+block append head
+
+block header
+
+  //- Верхний бар
+  +wrapper()( class=pageHeader.topBar.class )
+
+    //- Логотип
+    include ../../blocks/logo/logo.pug
+    +logo()( class=pageHeader.logo.class )
+      +image( "logo.svg", logoTitle, logoTitle, 113, 33 )
+
+    //- Основная навигация
+    include ../../blocks/main-nav/main-nav.pug
+    +main-nav()( class=pageHeader.mainNav.class )
+      +list()( class=mainNav.list.class )
+        +list-item()( class=mainNav.listItem.class )
+          +href( "Подбор квартиры" )( class=mainNav.link.class, href="#" )
+        +list-item()( class=mainNav.listItem.class )
+          +href( "Наши услуги" )( class=mainNav.link.class, href="#" )
+        +list-item()( class=mainNav.listItem.class )
+          +href( "Кэшбэк" )( class=mainNav.link.class, href="#" )
+        +list-item()( class=mainNav.listItem.class )
+          +href( "Видео-клиентов" )( class=mainNav.link.class, href="#" )
+
+    //- Номер телефона и кнопка
+    +wrapper( "p" )( class=pageHeader.contacts.class )
+      +href( "+7 812 344-20-39", "link" )( class=pageHeader.contactsLink.class, href="tel:+78123442039" )
+        +icon( "phone", 20, 20 )
+      +button( "Обратный звонок", "transparent, border-white" )( class=pageHeader.contactsButton.class )
+
+  //- Контентная часть
+  +wrapper()( class=pageHeader.content.class )
+
+    //- Контент
+    +wrapper()( class=pageHeader.contentDesc.class )
+      +title( "Бесплатный сервис по подбору квартиры в новостройках Санкт-Петербурга без посредников", "h1" )( class=pageHeader.descTitle.class )
+      +text( "От застройщиков. Собственников. По переуступкам. Подрядчиков" )( class=pageHeader.descText.class )
+      +wrapper( "p" )( class=pageHeader.descButtons.class )
+        +button( "Подобрать квартиру", "blue" )( class=pageHeader.descButton.class )
+        +button( "Получить кэшбэк", "white" )( class=pageHeader.descButton.class  )
+
+    //- Заметка
+    +wrapper()( class=pageHeader.contentNote.class )
+      +text( "Наши клиенты покупают квартиры дешевле в среднем <br> на 800 000руб, чем планировали." )( class=pageHeader.noteText.class )
+      +button( "Смотрите их истории", "red" )( class=pageHeader.noteButton.class )
+        +icon( "play", 11, 16, "play" )
+
+block main
+  include ../../blocks/accordion/accordion.pug
+  include ../../blocks/slider/slider.pug
+
+  //- Преимущества
+  include ../../sections/advantages/advantages.pug
+  +section( "section" )( class=advantagesClass )
+    +wrapper()( class=advantages.container.class )
+      +title( "Преимущества", "h2" )( class=advantages.title.class )
+      +list()( class=advantages.list.class )
+        +list-item()( class=advantages.listItem.class )
+          +title( "78 000 квартир в Спб", "h3" )( class=advantages.subTitle.class )
+            +icon( "build", "32", "32" )
+          +text( "Мы владеем одной из наиболее крупных межагентских баз недвижимости, " +
+          "где размещаются все актуальные квартиры в новостройках" )( class=advantages.text.class )
+        +list-item()( class=advantages.listItem.class )
+          +title( "Без посредников", "h3" )( class=advantages.subTitle.class )
+            +icon( "peoples", "32", "32" )
+          +text( "Окончательная коммуникация по стоимости и условиям приобретения " +
+          "происходит напрямую между вами и продавцом" )( class=advantages.text.class )
+        +list-item()( class=advantages.listItem.class )
+          +title( "Кэшбэк до 6%", "h3" )( class=advantages.subTitle.class )
+            +icon( "hand", "32", "32" )
+          +text( "Окончательная коммуникация по стоимости и условиям приобретения " +
+          "происходит напрямую между вами и продавцом" )( class=advantages.text.class )
+
+  //- Кешбэк
+  include ../../sections/cashback/cashback.pug
+  +section( "section" )( class=cashbackClass )
+    +wrapper()( class=cashback.container.class )
+      +title( "Вернем до 6% <br> от стоимости твоей квартиры", "h2" )( class=cashback.title.class )
+      +text( "Выбери любую квартиру в новостройке с бесплатным сервисом поиска <br> недвижимости" +
+      " «Новостройки <br> Петербурга» и получи кэшбэк до 6% или сертификат до 450 000р." )( class=cashback.text.class )
+      +wrapper( "p" )( class=cashback.buttons.class )
+        +button( "Получить презентацию", "blue" )( class=cashback.button.class )
+        +button( "Как получить кэшбэк", "red" )( class=cashback.button.class )
+          +icon( "play", 11, 16, "play" )
+
+  //- Преимущества кэшбэка
+  include ../../sections/advantages/advantages.pug
+  +section( "section" )( class=advantagesCashbackClass )
+    +wrapper()( class=advantages.container.class )
+      +title( "Преимущества кешбэка", "h2" )( class=advantages.title.class )
+      +list()( class=advantages.list.class )
+        +list-item()( class=advantages.listItem.class )
+          +title( "Напрямую с продавцом", "h3" )( class=advantages.subTitle.class )
+            +icon( "seller", "32", "32" )
+          +text( "Условия приобретения и цену вы обсуждаете напрямую" +
+          " с продавцом, без посредников" )( class=advantages.text.class )
+        +list-item()( class=advantages.listItem.class )
+          +title( "На любую квартиру", "h3" )( class=advantages.subTitle.class )
+            +icon( "money", "32", "32" )
+          +text( "Выбери с нами любую квартиру ( от застройщика, собственника" +
+          " или подрядчика) в новостройке и получи на нее кэшбэк до 6%" )( class=advantages.text.class )
+        +list-item()( class=advantages.listItem.class )
+          +title( "Большие бонусы", "h3" )( class=advantages.subTitle.class )
+            +icon( "fireworks", "32", "32" )
+          +text( "Эксклюзивные рекламные интеграции со спонсорами позволяют" +
+          " давать нашим клиентам щедрые бонусы и разыгрывать квартиры" )( class=advantages.text.class )
+
+  //- Калькулятор
+  +wrapper()( class=pageMain.wrapper.class )
+
+    //- Калькулятор
+    include ../../sections/calculator/calculator.pug
+    +section()( class=calculatorClass )
+      +wrapper()( class=calculator.container.class )
+        +title( "Рассчитайте сумму кэшбэка или сертификата", "h2" )( class=calculator.title.class )
+        +form()( class=calculator.form.class )
+          +fieldset( "Калькулятор" )
+            +field-text({
+              title: "Название ЖК",
+              attrs: {
+                placeholder: "Введите название комплекса"
+              }
+            })
+            +field-text({
+              title: "Стоимость квартиры",
+              helpText: "Укажите стоимость с учетом скидок и торга от продавца",
+              attrs: {
+                placeholder: "Введите стоимость квартиры"
+              }
+            })
+            +field-text({
+              title: "Тип продавца",
+              attrs: {
+                placeholder: "Введите название комплекса"
+              }
+            })
+            +wrapper( "p" )( class=calculator.wrapperResult.class )
+              +element( "Выберите сертификат или кэшбэк", "span" )( class=calculator.titleResult.class )
+              +field-text({
+                title: "Сумма кэшбэка",
+                attrs: {
+                  'data-name': 'cahsback',
+                  placeholder: "420 000,00₽",
+                  readonly: true,
+                }
+              })( class=calculator.fieldResult.class + " " + calculator.fieldResult.mod + " " + calculator.fieldResult.mod2 )
+              +field-text({
+                title: "Номинал сертификата",
+                attrs: {
+                  'data-name': 'sertificate',
+                  placeholder: "460 000,00₽",
+                  readonly: true,
+                }
+              })( class=calculator.fieldResult.class + " " + calculator.fieldResult.mod )
+            +wrapper( "p" )( class=calculator.buttons.class )
+              +button( "Получить", "blue" )( class=calculator.button.class )
+              +button( "Выбрать квартиру", "blue" )( class=calculator.button.class )
+
+    //- Вопросы и ответы
+    include ../../sections/faq/faq.pug
+    +section()( class=faqClass )
+      +wrapper()( class=faq.container.class )
+        +title( "Вопросы и ответы", "h2" )( class=faq.title.class )
+        +list()( class=faq.list.class )
+          +list-item()( class=faq.listItem.class )
+            +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
+              +title( "<span>Цена изначально завышена на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
+                +icon( "close-a", 22, 22 )
+            +wrapper( "div" )( class=faq.itemContainer.class + " " + faq.itemContainer.modContent + " " + accordion.content.class )
+              +text( "Мы не являемся посредниками в приобретении жилья, условия и стоимость приобретения квартиры вы " +
+              "обсуждаете напрямую с продавцом. Если вы пользовались нашей помощью в подборе квартиры вам гарантирован " +
+              "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
+              +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
+              "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
+                +element( "Важно:", "strong" )
+          +list-item()( class=faq.listItem.class )
+            +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
+              +title( "<span>Чтобы получить бонус я должен купить у вас?</span>", "h3" )( class=faq.subTitle.class )
+                +icon( "close-a", 22, 22 )
+            +wrapper( "div" )( class=faq.itemContainer.class + " " + faq.itemContainer.modContent + " " + accordion.content.class )
+              +text( "Мы не являемся посредниками в приобретении жилья, условия и стоимость приобретения квартиры вы " +
+              "обсуждаете напрямую с продавцом. Если вы пользовались нашей помощью в подборе квартиры вам гарантирован " +
+              "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
+              +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
+              "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
+                +element( "Важно:", "strong" )
+          +list-item()( class=faq.listItem.class )
+            +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
+              +title( "<span>Я только ищу квартиру, как мне в будущем гарантированно получить кэшбэк на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
+                +icon( "close-a", 22, 22 )
+            +wrapper( "div" )( class=faq.itemContainer.class + " " + faq.itemContainer.modContent + " " + accordion.content.class )
+              +text( "Мы не являемся посредниками в приобретении жилья, условия и стоимость приобретения квартиры вы " +
+              "обсуждаете напрямую с продавцом. Если вы пользовались нашей помощью в подборе квартиры вам гарантирован " +
+              "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
+              +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
+              "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
+                +element( "Важно:", "strong" )
+          +list-item()( class=faq.listItem.class )
+            +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
+              +title( "<span>Я только ищу квартиру, как мне в будущем гарантированно получить кэшбэк на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
+                +icon( "close-a", 22, 22 )
+            +wrapper( "div" )( class=faq.itemContainer.class + " " + faq.itemContainer.modContent + " " + accordion.content.class )
+              +text( "Мы не являемся посредниками в приобретении жилья, условия и стоимость приобретения квартиры вы " +
+              "обсуждаете напрямую с продавцом. Если вы пользовались нашей помощью в подборе квартиры вам гарантирован " +
+              "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
+              +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
+              "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
+                +element( "Важно:", "strong" )
+        +form()( class=faq.form.class )
+          +fieldset( "Вопрос менеджеру" )
+            +field-text({
+              title: "Вопрос менеджеру",
+              isTextarea: true,
+              attrs: {
+                placeholder: "Задайте вопрос менеджеру"
+              }
+            })( class=faq.field.class )
+          +button( "Задать вопрос", "transparent" )( class=faq.button.class, type="submit" )
+
+  //- Подарок
+  include ../../sections/present/present.pug
+  +section()( class=presentClass )
+    +wrapper()( class=present.container.class )
+      +title( "Дарим сертификат за рекомендацию", "h2" )( class=present.title.class )
+      +text( "Порекомендуй наш бесплатный сервис по поиску квартиры в новостройке знакомым, для которых это " +
+      "актуально, и в Isntagram. В благодарность мы дарим сертификат на 20 000руб вне зависимости от того, подобрали они " +
+      "квартиру с нами или нет." )( class=present.text.class )
+      +form()( class=present.form.class )
+        +fieldset( "Получить скидку" )
+          +field-text({
+            title: "Получить скидку",
+            attrs: {
+              type: "tel",
+              placeholder: "+7 (___) ___-__-__"
+            }
+          })( class=present.field.class )
+        +button( "Получить 20 000₽", "blue" )( class=present.button.class type="submit" )
+
+  //- Вопросы и ответы
+  include ../../sections/faq/faq.pug
+  +section( "section" )( class=faqServiceClass )
+    +wrapper( "div" )( class=faq.container.class )
+      +title( "Ценность наших услуг", "h2" )( class=faq.title.class )
+      +text( "Мы предложим вам не менее 10 квартир в комплексах выше классом, с большей площадью и уровнем " +
+      "комфорта, лучшим благоустройством, чем вы думали купить за ту же стоимость" )( class=faq.description.class )
+      +list()( class=faq.list.class )
+        +list-item()( class=faq.listItem.class )
+          +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
+            +title( "<span>Цена изначально завышена на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
+              +icon( "close-a", 22, 22 )
+          +wrapper( "div" )( class=faq.itemContainer.class + " " + faq.itemContainer.modContent + " " + accordion.content.class )
+            +text( "Мы не являемся посредниками в приобретении жилья, условия и стоимость приобретения квартиры вы " +
+            "обсуждаете напрямую с продавцом. Если вы пользовались нашей помощью в подборе квартиры вам гарантирован " +
+            "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
+            +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
+            "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
+              +element( "Важно:", "strong" )
+        +list-item()( class=faq.listItem.class )
+          +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
+            +title( "<span>Чтобы получить бонус я должен купить у вас?</span>", "h3" )( class=faq.subTitle.class )
+              +icon( "close-a", 22, 22 )
+          +wrapper( "div" )( class=faq.itemContainer.class + " " + faq.itemContainer.modContent + " " + accordion.content.class )
+            +text( "Мы не являемся посредниками в приобретении жилья, условия и стоимость приобретения квартиры вы " +
+            "обсуждаете напрямую с продавцом. Если вы пользовались нашей помощью в подборе квартиры вам гарантирован " +
+            "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
+            +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
+            "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
+              +element( "Важно:", "strong" )
+        +list-item()( class=faq.listItem.class )
+          +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
+            +title( "<span>Я только ищу квартиру, как мне в будущем гарантированно получить кэшбэк на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
+              +icon( "close-a", 22, 22 )
+          +wrapper( "div" )( class=faq.itemContainer.class + " " + faq.itemContainer.modContent + " " + accordion.content.class )
+            +text( "Мы не являемся посредниками в приобретении жилья, условия и стоимость приобретения квартиры вы " +
+            "обсуждаете напрямую с продавцом. Если вы пользовались нашей помощью в подборе квартиры вам гарантирован " +
+            "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
+            +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
+            "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
+              +element( "Важно:", "strong" )
+        +list-item()( class=faq.listItem.class )
+          +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
+            +title( "<span>Я только ищу квартиру, как мне в будущем гарантированно получить кэшбэк на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
+              +icon( "close-a", 22, 22 )
+          +wrapper( "div" )( class=faq.itemContainer.class + " " + faq.itemContainer.modContent + " " + accordion.content.class )
+            +text( "Мы не являемся посредниками в приобретении жилья, условия и стоимость приобретения квартиры вы " +
+            "обсуждаете напрямую с продавцом. Если вы пользовались нашей помощью в подборе квартиры вам гарантирован " +
+            "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
+            +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
+            "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
+              +element( "Важно:", "strong" )
+
+  //- Партнеры
+  include ../../sections/partners/partners.pug
+  +section()( class=partnersClass )
+    +wrapper()( class=partners.container.class )
+      +title( "Наши партнеры", "h2" )( class=partners.title.class )
+      +list()( class=partners.list.class + " " + sliderClass )
+        +list-item()( class=partners.listItem.class )
+          +wrapper( "figure" )( class=partners.figure.class )
+            +image( "partner-cds.png", "Логотип CDS", "Логотип CDS" )
+        +list-item()( class=partners.listItem.class )
+          +wrapper( "figure" )( class=partners.figure.class )
+            +image( "partner-lsr.png", "Логотип ЛСР", "Логотип ЛСР" )
+        +list-item()( class=partners.listItem.class )
+          +wrapper( "figure" )( class=partners.figure.class )
+            +image( "partner-lsr.png", "Логотип ЛСР", "Логотип ЛСР" )
+        +list-item()( class=partners.listItem.class )
+          +wrapper( "figure" )( class=partners.figure.class )
+            +image( "partner-lsr.png", "Логотип ЛСР", "Логотип ЛСР" )
+        +list-item()( class=partners.listItem.class )
+          +wrapper( "figure" )( class=partners.figure.class )
+            +image( "partner-lsr.png", "Логотип ЛСР", "Логотип ЛСР" )
+        +list-item()( class=partners.listItem.class )
+          +wrapper( "figure" )( class=partners.figure.class )
+            +image( "partner-lsr.png", "Логотип ЛСР", "Логотип ЛСР" )
+        +list-item()( class=partners.listItem.class )
+          +wrapper( "figure" )( class=partners.figure.class )
+            +image( "partner-lsr.png", "Логотип ЛСР", "Логотип ЛСР" )
+      +wrapper()( class=partners.controls.class + " " + slider.controls.class )
+        +sliderControls()
+
+  //- Обратная связь
+  include ../../sections/feedback/feedback.pug
+  +section()( class=feedbackClassPadding )
+    +wrapper( "div" )( class=feedback.container.class )
+      +title( "Свяжитесь с личным менеджером", "h2" )( class=feedback.title.class )
+      +text( "Поможем вам подобрать квартиру в новостройке и получить на нее самую выгодную цену" )( class=feedback.description.class )
+      +form()( class=feedback.form.class )
+        +fieldset( "Получить скидку" )
+          +field-text({
+            title: "Получить скидку",
+            attrs: {
+              type: "tel",
+              placeholder: "+7 (___) ___-__-__"
+            }
+          })( class=feedback.field.class )
+        +button( "Получить кэшбэк 6%", "blue" )( class=feedback.button.class type="submit" )
+
+block footer
+  +logo()( class=pageFooter.logo.class )
+    +image( "logo.svg", "Логотип " + setting.siteName, "Логотип " + setting.siteName, "144", "42" )
+  +wrapper( "p" )( class=pageFooter.contacts.class )
+    +element( "улица Название Улицы, 37а", "span" )( class=pageFooter.phrase.class + " " + pageFooter.phrase.modAdress )
+    +href( "+7 812 344-20-39" )( class=pageFooter.link.class + " " + pageFooter.link.modPhone, href="tel:+78123442039" )
+  +wrapper( "p" )( class=pageFooter.copy.class )
+    +href( "Публичная оферта и конфиденциальность" )( class=pageFooter.link.class + " " + pageFooter.link.modPrivacy, href="#" )
+    +element( "&copy; 2017-2019", "span" )( class=pageFooter.phrase.class + " " + pageFooter.phrase.modCopy )
+
+block prepend head
+
+block append head

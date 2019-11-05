@@ -1,0 +1,11 @@
+// В этом файле должны быть стили для БЭМ-блока list, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.list {
+  $block-name: &; // #{$block-name}__element
+
+  @include ul-reset;
+}

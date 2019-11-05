@@ -1,0 +1,34 @@
+// В этом файле должны быть стили для БЭМ-блока accordion, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.accordion {
+  $block-name:                &; // #{$block-name}__element
+
+  &-link {
+    svg {
+      transform: rotate(-45deg);
+    }
+
+    &--transform {
+      svg {
+        transform: rotate(0);
+      }
+
+      span {
+        font-weight: 700 !important;
+        color: $color-blue !important;
+      }
+    }
+  }
+
+  &-content {
+    display: none;
+
+    &--show {
+      display: block;
+    }
+  }
+}
