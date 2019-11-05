@@ -47,7 +47,7 @@ block header
     //- Логотип
     include ../../blocks/logo/logo.pug
     +logo()( class=pageHeader.logo.class )
-      +image( "logo.svg", logoTitle, logoTitle, 113, 33 )
+      +image( "logo.svg", "Логотип " + setting.siteName, "Логотип " + setting.siteName, logoTitle, 113, 33 )
 
     //- Основная навигация
     include ../../blocks/main-nav/main-nav.pug
