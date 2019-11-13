@@ -1,0 +1,186 @@
+// В этом файле должны быть стили для БЭМ-блока presentation, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.presentation {
+  $block-name: &; // #{$block-name}__element
+
+  &__wrapper {
+    background-image: url("#{$imagesDir}presentation-bg.svg");
+    background-color: #ECF2F9;
+    background-position: 50% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 114px;
+
+    @media (min-width: $screen-xl) {
+      padding-top: 82px;
+      padding-bottom: 242px;
+    }
+
+    &::before {
+      @include pseudo;
+      top: -4px;
+      left: calc(50% - 25px);
+      border: 30px solid transparent;
+      border-right: 30px solid $color-white;
+      transform: rotate(-90deg);
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &__container {
+    @include row(xs, 1);
+    @include row(xl, 1);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__body {
+    margin-top: 70px;
+
+    @media (min-width: $screen-xl) {
+      margin-top: 83px;
+    }
+
+    &-container {
+      margin-top: 10px;
+
+      @media (min-width: $screen-xl) {
+        margin-top: -320px;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 520px;
+
+    @media (min-width: $screen-xl) {
+      font-size: 28px;
+    }
+
+  }
+
+  &__subtitle {
+    max-width: 257px;
+    display: block;
+    margin: 0 auto;
+
+    @media (min-width: $screen-xl) {
+      font-size: 24px;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    br {
+      @media (min-width: $screen-xl) {
+        display: none;
+      }
+    }
+  }
+
+  .slick-list {
+    padding: 10px 0 25px;
+    margin: 0 -15px !important;
+  }
+
+  .slick-slide {
+    margin: 0 15px !important;
+  }
+
+  &__list {
+    @include row(xl, 2, equal, 430px, false);
+    @media (min-width: $screen-xl) {
+      grid-row-gap: 97px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__item {
+    &-title {
+      margin: 0 0 8px;
+
+      @media (min-width: $screen-xl) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__figure {
+    margin: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: $screen-xl) {
+      width: 430px;
+      margin: 87px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__buttons {
+    margin-top: 28px;
+  }
+
+  &__button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__controls {
+    @media (min-width: $screen-xl) {
+      display: none;
+    }
+  }
+
+  &__dots {
+    button {
+      background-color: $color-white;
+    }
+  }
+
+  &__note {
+    @include row(xs, 1);
+    @include row(xl, 1);
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    max-width: 330px;
+    background-color: $color-white;
+    padding: 19px 31px 33px;
+    border-radius: $border-radius;
+    box-shadow: $block-box-shadow;
+    font-weight: 500;
+    position: relative;
+    z-index: 3;
+
+    @media (min-width: $screen-xl) {
+      text-align: left;
+      padding: 37px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 485px;
+      margin-top: -157px;
+    }
+
+    &-button {
+      margin: 20px auto 0;
+
+      @media (min-width: $screen-xl) {
+        margin-top: 25px;
+      }
+    }
+  }
+}

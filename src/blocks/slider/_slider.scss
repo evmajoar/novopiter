@@ -6,6 +6,7 @@
 
 .slider {
   $block-name: &; // #{$block-name}__element
+  visibility: hidden;
 
   @media (min-width: $screen-xl) {
     width: calc(100% - 106px);
@@ -17,13 +18,18 @@
     justify-content: space-between;
     align-items: center;
 
+    .slick-disabled {
+      opacity: 0 !important;
+      cursor: default;
+    }
+
     @media (min-width: $screen-xl) {
       justify-content: center;
       position: relative;
     }
   }
 
-  &__button {
+  &__arrow {
     background: none;
     box-shadow: none;
     width: auto;
@@ -33,6 +39,10 @@
     @media (min-width: $screen-xl) {
       position: absolute;
       top: -83px;
+    }
+
+    .icon {
+      fill: #B7C1C5;
     }
 
     span {

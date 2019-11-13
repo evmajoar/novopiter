@@ -8,28 +8,23 @@
       class: sliderClass + '__controls',
     },
     button: {
-      class: sliderClass + '__button',
-      modNext: sliderClass + '__button--prev',
-      modPrev: sliderClass + '__button--next',
+      class: sliderClass + '__arrow',
+      modNext: sliderClass + '__arrow--prev',
+      modPrev: sliderClass + '__arrow--next'
     },
     dots: {
       class: sliderClass + '__dots'
     }
   }
 
-mixin dotsContainer()
-  +wrapper()( class=slider.dots.class )
+mixin dotsContainer(className)
+  +wrapper()( class=slider.dots.class + " " + className )
 
-mixin arrowPrev()
-  +button( "Предыдущий слайд", "slider" )( class=slider.button.class + " " + slider.button.modNext )
+mixin arrowPrev(className)
+  +button( "Предыдущий слайд", "slider" )( class=slider.button.class + " " + slider.button.modNext + " " + className )
     +icon( "arrow-left", 24, 24 )
 
-mixin arrowNext()
-  +button( "Предыдущий слайд", "slider" )( class=slider.button.class + " " + slider.button.modPrev )
+mixin arrowNext(className)
+  +button( "Предыдущий слайд", "slider" )( class=slider.button.class + " " + slider.button.modPrev + " " + className )
     +icon( "arrow-right", 24, 24 )
-
-mixin sliderControls()
-  +arrowPrev()
-  +dotsContainer()
-  +arrowNext()
 

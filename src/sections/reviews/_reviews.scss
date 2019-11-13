@@ -1,0 +1,168 @@
+// В этом файле должны быть стили для БЭМ-блока reviews, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+
+@import "../../libraries/variables";
+@import "../../libraries/mixins";
+
+.reviews {
+  $block-name: &; // #{$block-name}__element
+
+  background-image: url("#{$imagesDir}reviews-bg.jpg");
+  background-color: #263239;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  @media (min-width: $screen-xl) {
+    padding-top: 100px;
+    padding-bottom: 140px;
+  }
+
+  &__container {
+    @include row( xs, 1 );
+    @include row( xl, 1 );
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: $screen-xl) {
+      position: relative;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    margin: 0;
+    text-align: center;
+
+    @media (min-width: $screen-xl) {
+      font-size: 28px;
+    }
+  }
+
+  &__description {
+    color: $color-white;
+    margin: 0;
+    margin-top: 18px;
+    text-align: center;
+
+    @media (min-width: $screen-xl) {
+      justify-self: center;
+      max-width: 450px;
+    }
+  }
+
+  .slick-list {
+    padding: 30px 0 25px;
+    margin: 0 -15px !important;
+  }
+
+  .slick-slide {
+    margin: 0 15px !important;
+  }
+
+  &__list {
+    @media (min-width: $screen-xl) {
+      margin-top: 20px;
+    }
+  }
+
+  &__item {
+    &-container {
+      background-color: $color-white;
+      border-radius: $border-radius;
+      box-shadow: $block2-box-shadow;
+      overflow: hidden;
+    }
+
+    &-header {
+      position: relative;
+
+      .video {
+        width: 100%;
+        vertical-align: bottom;
+        position: relative;
+        z-index: 1;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: calc(50% - 25px);
+        top: calc(50% - 25px);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: $color-white;
+        color: $color-blue;
+        box-shadow: $block-box-shadow;
+        z-index: 2;
+
+        .icon {
+          fill: $color-blue;
+          margin-right: 0;
+          margin-left: 5px;
+          margin-top: 2px;
+        }
+      }
+    }
+
+    &-body {
+      padding: 21px 31px 29px;
+    }
+
+    &-title {
+      color: $color-blue;
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    &-text {
+      margin-top: 8px;
+
+      strong {
+        display: block;
+        color: $color-blue;
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &--developer {
+        color: $color-grey;
+      }
+
+      &--characteristic {
+        font-size: 14px;
+        color: $color-grey;
+        margin-top: 3px;
+      }
+
+      &--cashback {
+        color: $color-blue;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__controls {
+    @media (min-width: $screen-xl) {
+      position: static;
+    }
+  }
+
+  &__arrow {
+    top: calc(50% - 12px);
+
+    .icon {
+      fill: $color-white;
+    }
+  }
+}

@@ -11,6 +11,7 @@ include ../constructors/title/title.pug
 include ../constructors/list/list.pug
 include ../constructors/text/text.pug
 include ../constructors/href/href.pug
+include ../constructors/video/video.pug
 include ../constructors/image/image.pug
 include ../constructors/icon/icon.pug
 include ../constructors/button/button.pug
@@ -30,6 +31,7 @@ doctype html
     siteName: "Название сайта",
     siteURL: "http://localhost:8080/",
     imagesSrc: "images/",
+    videosSrc: "videos/",
     iconSrc: "icons/",
     faviconSrc: "favicon/"
   }
@@ -39,6 +41,8 @@ html( class="page no-js", lang=setting.lang )
     meta( charset=setting.charset )
     +meta( "viewport", "width=device-width, initial-scale=1" )
     +meta( "language", setting.lang.toUpperCase() )
+    +meta( "author", "Artur Evmajoar" )
+    +meta( "designer", "Kami Katze" )
 
     //- Edge и ряд мобильных браузеров слишком умны. Отключим это.
     +meta( "format-detection", "telephone=no" )
@@ -79,22 +83,32 @@ html( class="page no-js", lang=setting.lang )
 
     +wrapper()( class="page__inner" )
 
+
       //- Хедер
       include ../sections/page-header/page-header.pug
-      +section( "header", false )( class=pageHeaderClass )
+      +section( "header" )( class=pageHeaderClass )
         +wrapper( "div" )( class=pageHeader.container.class )
           block header
 
+
       //- Контент
       include ../sections/page-main/page-main.pug
-      +section( "main", false )( class=pageMainClass )
+      +section( "main" )( class=pageMainClass )
         block main
+
 
       //- Футер
       include ../sections/page-footer/page-footer.pug
-      +section( "footer", false )( class=pageFooterClass )
+      +section( "footer" )( class=pageFooterClass )
         +wrapper( "div" )( class=pageFooter.container.class )
           block footer
+
+
+      //- Модалки
+      include ../sections/modals/modals.pug
+      +section( "div" )( class=modalsClass )
+        block modal
+
 
     block bottom
 

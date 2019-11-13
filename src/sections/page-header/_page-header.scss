@@ -12,8 +12,8 @@
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 12px;
-  padding-bottom: 18px;
+  padding-top: 18px;
+  padding-bottom: 62px;
 
   @media (min-width: $screen-xl) {
     padding-top: 29px;
@@ -51,7 +51,7 @@
   &__main-nav {
     @include col( xs, 1, 2 );
     @include col( xl, 3, 9 );
-    justify-self: left;
+    justify-self: start;
     display: flex;
     order: 1;
 
@@ -63,10 +63,10 @@
   &__contacts {
     @include col( xs, 3, -1 );
     @include col( xl, 9, -1 );
+    justify-self: end;
     justify-content: end;
     order: 3;
     display: flex;
-    align-items: center;
 
     @media (min-width: $screen-xl) {
       justify-self: stretch;
@@ -117,7 +117,7 @@
     @include col( xs, 1, 4 );
     @include col( xl, 1, 8 );
     justify-content: center;
-    margin-top: 27px;
+    margin-top: 45px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -176,13 +176,6 @@
           margin-left: 30px;
         }
       }
-
-      //&--margin {
-      //  display: flex;
-      //  margin-top: 5px;
-      //  margin-left: auto;
-      //  margin-right: auto;
-      //}
     }
   }
 

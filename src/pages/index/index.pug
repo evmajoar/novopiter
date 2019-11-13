@@ -89,6 +89,7 @@ block main
   include ../../blocks/accordion/accordion.pug
   include ../../blocks/slider/slider.pug
 
+
   //- Преимущества
   include ../../sections/advantages/advantages.pug
   +section( "section" )( class=advantagesClass )
@@ -111,6 +112,47 @@ block main
           +text( "Окончательная коммуникация по стоимости и условиям приобретения " +
           "происходит напрямую между вами и продавцом" )( class=advantages.text.class )
 
+
+  //-Презентация
+  include ../../sections/presentation/presentation.pug
+  +section()( class=presentationClass )
+    +wrapper()( class=presentation.wrapper.class )
+      +wrapper()( class=presentation.container.class )
+        +title( "Мы знаем о каждой квартире, которая продается в новостройке", "h2" )( class=presentation.title.class )
+        +wrapper( "p" )( class=presentation.buttons.class )
+          +button( "Смотреть базу квартир", "blue" )( class=presentation.button.class )
+        +wrapper()( class=presentation.body.class )
+          +title( "Квартиры в новостройках <br> Санкт-Петербурга", "h3" )( class=presentation.subTitle.class )
+          +wrapper( "figure" )( class=presentation.figure.class )
+            <svg width="275" height="279" viewBox="0 0 275 279" fill="none" xmlns="http://www.w3.org/2000/svg"><g class="diagram-group"><path d="M173.448 20c-28.165-8.196-61.405-8.129-87 5-26.907 11.681-49.5 33.5-62.5 60l113.5 56.5 36-121.5z" fill="#313E70"/><path d="M102.179 74.604h-8.192v-2.24l4.416-4c.62-.586.928-1.168.928-1.744 0-.405-.128-.73-.384-.976-.256-.256-.597-.384-1.024-.384-.437 0-.8.16-1.088.48-.288.31-.458.72-.512 1.232l-2.576-.352c.128-1.12.598-2.005 1.408-2.656.811-.661 1.782-.992 2.912-.992 1.131 0 2.096.299 2.896.896.8.598 1.2 1.456 1.2 2.576 0 .726-.17 1.344-.512 1.856-.33.512-.821 1.056-1.472 1.632l-2.624 2.336h4.624v2.336zm10.856-2.208h-1.552v2.208h-2.512v-2.208h-5.328V70.14l4.608-6.864h3.216v6.944h1.568v2.176zm-4.048-2.176v-4.192h-.048l-2.688 4.192h2.736zm17.928-.592c.597.587.896 1.302.896 2.144 0 .843-.299 1.558-.896 2.144-.587.587-1.301.88-2.144.88a2.97 2.97 0 0 1-2.16-.88c-.587-.586-.88-1.301-.88-2.144 0-.842.293-1.557.88-2.144a2.97 2.97 0 0 1 2.16-.88c.843 0 1.557.294 2.144.88zm-1.264 3.024a1.2 1.2 0 0 0 .368-.88c0-.341-.123-.634-.368-.88a1.201 1.201 0 0 0-.88-.368c-.341 0-.635.123-.88.368a1.202 1.202 0 0 0-.368.88c0 .342.123.635.368.88.245.235.539.352.88.352.341 0 .635-.117.88-.352zm-5.52-6.544c0 .832-.299 1.547-.896 2.144-.587.587-1.301.88-2.144.88a2.97 2.97 0 0 1-2.16-.88 2.95 2.95 0 0 1-.88-2.144c0-.842.293-1.557.88-2.144a2.97 2.97 0 0 1 2.16-.88c.843 0 1.557.294 2.144.88.597.587.896 1.302.896 2.144zm-2.16.88a1.2 1.2 0 0 0 .368-.88c0-.341-.123-.634-.368-.88a1.201 1.201 0 0 0-.88-.368c-.341 0-.635.123-.88.368a1.202 1.202 0 0 0-.368.88c0 .342.123.635.368.88.245.235.539.352.88.352.341 0 .635-.117.88-.352zm7.024-3.504l-6.672 11.664-1.424-.704 6.608-11.68 1.488.72z" fill="#fff"/></g><g class="diagram-group"><path d="M224.679 232.546a126.236 126.236 0 0 0 38.877-89.612l-126.223-1.522 87.346 91.134z" fill="#D03030"/><path d="M211.388 171.348c0 1.131-.411 2.006-1.232 2.624-.821.608-1.829.912-3.024.912-1.205 0-2.219-.304-3.04-.912-.811-.608-1.216-1.477-1.216-2.608 0-.661.192-1.232.576-1.712.384-.48.869-.81 1.456-.992v-.032a2.762 2.762 0 0 1-1.248-.912c-.32-.426-.48-.938-.48-1.536 0-1.002.379-1.792 1.136-2.368.768-.576 1.707-.864 2.816-.864 1.109 0 2.043.283 2.8.848.768.555 1.152 1.334 1.152 2.336 0 .608-.16 1.131-.48 1.568a2.388 2.388 0 0 1-1.248.912v.048c.587.16 1.072.486 1.456.976a2.7 2.7 0 0 1 .576 1.712zm-3.296-4.08c.267-.266.4-.581.4-.944a1.19 1.19 0 0 0-.4-.912 1.338 1.338 0 0 0-.96-.384c-.395 0-.72.123-.976.368a1.26 1.26 0 0 0-.368.928c0 .374.123.694.368.96.245.256.571.384.976.384.384 0 .704-.133.96-.4zm.608 3.984c0-.437-.149-.8-.448-1.088a1.523 1.523 0 0 0-1.12-.448c-.459 0-.837.15-1.136.448a1.447 1.447 0 0 0-.448 1.088c0 .448.144.811.432 1.088.299.278.683.416 1.152.416.469 0 .848-.133 1.136-.4.288-.277.432-.645.432-1.104zm16.936-1.648c.597.587.896 1.302.896 2.144 0 .843-.299 1.558-.896 2.144-.587.587-1.301.88-2.144.88a2.969 2.969 0 0 1-2.16-.88c-.587-.586-.88-1.301-.88-2.144 0-.842.293-1.557.88-2.144a2.973 2.973 0 0 1 2.16-.88c.843 0 1.557.294 2.144.88zm-1.264 3.024a1.2 1.2 0 0 0 .368-.88c0-.341-.123-.634-.368-.88a1.202 1.202 0 0 0-.88-.368c-.341 0-.635.123-.88.368a1.204 1.204 0 0 0-.368.88c0 .342.123.635.368.88.245.235.539.352.88.352.341 0 .635-.117.88-.352zm-5.52-6.544c0 .832-.299 1.547-.896 2.144-.587.587-1.301.88-2.144.88a2.969 2.969 0 0 1-2.16-.88 2.95 2.95 0 0 1-.88-2.144c0-.842.293-1.557.88-2.144a2.973 2.973 0 0 1 2.16-.88c.843 0 1.557.294 2.144.88.597.587.896 1.302.896 2.144zm-2.16.88a1.2 1.2 0 0 0 .368-.88c0-.341-.123-.634-.368-.88a1.202 1.202 0 0 0-.88-.368c-.341 0-.635.123-.88.368a1.204 1.204 0 0 0-.368.88c0 .342.123.635.368.88.245.235.539.352.88.352.341 0 .635-.117.88-.352zm7.024-3.504l-6.672 11.664-1.424-.704 6.608-11.68 1.488.72z" fill="#fff"/></g><g class="diagram-group"><path d="M24.053 84.663a125.682 125.682 0 0 0-9.717 85.988c7.042 28.914 24.113 54.43 48.2 72.044a127.187 127.187 0 0 0 83.45 24.22c29.806-1.971 57.947-14.365 79.455-34.994L137.492 141 24.052 84.663z" fill="#fff"/><path d="M91.583 192.569h-1.552v2.208H87.52v-2.208h-5.328v-2.256l4.608-6.864h3.216v6.944h1.568v2.176zm-4.048-2.176v-4.192h-.048l-2.688 4.192h2.736zm13.912.64c0 1.302-.427 2.304-1.28 3.008-.853.694-1.883 1.04-3.088 1.04-1.045 0-1.957-.256-2.736-.768a3.79 3.79 0 0 1-1.568-2.112l2.448-.752c.117.406.341.736.672.992a1.92 1.92 0 0 0 1.152.368c.48 0 .88-.144 1.2-.432.33-.288.496-.693.496-1.216 0-.618-.224-1.061-.672-1.328-.448-.266-.997-.4-1.648-.4-.928 0-1.85.166-2.768.496l.272-6.48h6.944v2.304h-4.56l-.096 1.792c.31-.074.688-.112 1.136-.112 1.195 0 2.176.315 2.944.944.768.619 1.152 1.504 1.152 2.656zm14.36-1.232c.597.587.896 1.302.896 2.144 0 .843-.299 1.558-.896 2.144-.587.587-1.302.88-2.144.88a2.969 2.969 0 0 1-2.16-.88c-.587-.586-.88-1.301-.88-2.144 0-.842.293-1.557.88-2.144a2.973 2.973 0 0 1 2.16-.88c.842 0 1.557.294 2.144.88zm-1.264 3.024a1.2 1.2 0 0 0 .368-.88c0-.341-.123-.634-.368-.88a1.204 1.204 0 0 0-.88-.368 1.2 1.2 0 0 0-.88.368 1.2 1.2 0 0 0-.368.88c0 .342.122.635.368.88.245.235.538.352.88.352.341 0 .634-.117.88-.352zm-5.52-6.544c0 .832-.299 1.547-.896 2.144-.587.587-1.302.88-2.144.88a2.969 2.969 0 0 1-2.16-.88 2.95 2.95 0 0 1-.88-2.144c0-.842.293-1.557.88-2.144a2.973 2.973 0 0 1 2.16-.88c.842 0 1.557.294 2.144.88.597.587.896 1.302.896 2.144zm-2.16.88a1.2 1.2 0 0 0 .368-.88c0-.341-.123-.634-.368-.88a1.204 1.204 0 0 0-.88-.368 1.2 1.2 0 0 0-.88.368 1.2 1.2 0 0 0-.368.88c0 .342.122.635.368.88.245.235.538.352.88.352.341 0 .634-.117.88-.352zm7.024-3.504l-6.672 11.664-1.424-.704 6.608-11.68 1.488.72z" fill="#303C40"/></g><g class="diagram-group"><path d="M263.553 143.204a126.228 126.228 0 0 0-24.419-76.432C222.899 44.63 199.749 27.885 173.448 20l-36.115 121.412 126.22 1.792z" fill="#F0A252"/><path d="M191.003 103.89h-2.688v-8.32l-2.112 1.632-1.392-1.904 3.728-2.736h2.464v11.328zm12.76-7.584c0 1.078-.422 2.246-1.264 3.504l-2.736 4.08h-3.248l2.816-3.904.032-.048a2.327 2.327 0 0 1-.8.128c-1.024 0-1.904-.346-2.64-1.04-.726-.693-1.088-1.578-1.088-2.656 0-1.248.426-2.245 1.28-2.992.853-.746 1.914-1.12 3.184-1.12 1.269 0 2.33.374 3.184 1.12.853.736 1.28 1.712 1.28 2.928zm-2.688-.032c0-.501-.166-.928-.496-1.28-.32-.352-.742-.528-1.264-.528-.534 0-.966.17-1.296.512-.331.342-.496.779-.496 1.312 0 .512.16.939.48 1.28.33.33.757.496 1.28.496.533 0 .965-.165 1.296-.496.33-.33.496-.762.496-1.296zm16.727 2.64a2.89 2.89 0 0 1 .896 2.144c0 .843-.298 1.558-.896 2.144-.586.587-1.301.88-2.144.88a2.972 2.972 0 0 1-2.16-.88c-.586-.586-.88-1.301-.88-2.144 0-.842.294-1.557.88-2.144a2.973 2.973 0 0 1 2.16-.88c.843 0 1.558.294 2.144.88zm-1.264 3.024c.246-.245.368-.538.368-.88a1.2 1.2 0 0 0-.368-.88 1.2 1.2 0 0 0-.88-.368c-.341 0-.634.123-.88.368a1.204 1.204 0 0 0-.368.88c0 .342.123.635.368.88.246.235.539.352.88.352.342 0 .635-.117.88-.352zm-5.52-6.544c0 .832-.298 1.547-.896 2.144-.586.587-1.301.88-2.144.88a2.973 2.973 0 0 1-2.16-.88 2.955 2.955 0 0 1-.88-2.144c0-.842.294-1.557.88-2.144a2.973 2.973 0 0 1 2.16-.88c.843 0 1.558.294 2.144.88a2.89 2.89 0 0 1 .896 2.144zm-2.16.88c.246-.245.368-.538.368-.88a1.2 1.2 0 0 0-.368-.88 1.199 1.199 0 0 0-.88-.368c-.341 0-.634.123-.88.368a1.202 1.202 0 0 0-.368.88 1.23 1.23 0 0 0 1.248 1.232c.342 0 .635-.117.88-.352zm7.024-3.504l-6.672 11.664-1.424-.704 6.608-11.68 1.488.72z" fill="#fff"/></g></svg>
+          +wrapper()( class=presentation.bodyContainer.class )
+            +list()( class=presentation.list.class + " " + sliderClass )
+              +list-item( class=presentation.listItem.class )
+                +title( "От собственников - торг", "h4" )( class=presentation.listItemTitle.class )
+                +text( "На такие квартиры всегда уместен торг, аргументированный торг может сильно снизить стоимость и " +
+                "зачастую это самые интересные квартиры в комплексе" )
+              +list-item( class=presentation.listItem.class )
+                +title( "Переуступки - дешевле", "h4" )( class=presentation.listItemTitle.class )
+                +text( "Переуступки могут продавать по разным причинам, зачастую из-за трудностей с выплатой ипотеки, " +
+                "такие квартиры дешевле на 7-15% от цены застройщика" )
+              +list-item( class=presentation.listItem.class )
+                +title( "От застройщика", "h4" )( class=presentation.listItemTitle.class )
+                +text( "На такие квартиры возможен максимальные бонусы от «Новостроек Петербурга». Ниже можно рассчитать " +
+                "размер кэшбэка в зависимости от ЖК и цены квартиры " )
+              +list-item( class=presentation.listItem.class )
+                +title( "От подрядчика - самые выгодные!", "h4" )( class=presentation.listItemTitle.class )
+                +text( "Пул квартиры, которыми застройщик расплачивается с подрядчиками. Такие квартиры дешевле на 9-17% " +
+                "застройщика, на них очень высокий спрос, особенно у инвесторов" )
+            +wrapper()( class=slider.controls.class + " " + presentation.controls.class )
+              +arrowPrev( presentation.arrow.class + " " + presentation.arrow.modButtonPrev )
+              +dotsContainer( presentation.dots.class )
+              +arrowNext( presentation.arrow.class + " " + presentation.arrow.modButtonNext )
+    +wrapper()( class=presentation.note.class )
+      +text( "Мы презентуем вам все квартиры в интересующих вас комплексах, согласуем лучшие условия приобретения, " +
+      "поможем собрать пакет документов и одобрить ипотеку" )( class=presentation.noteText.class )
+      +href( "Получить презентацию" )( class=presentation.noteButton.class, href="#" )
+
+
   //- Кешбэк
   include ../../sections/cashback/cashback.pug
   +section( "section" )( class=cashbackClass )
@@ -122,6 +164,7 @@ block main
         +button( "Получить презентацию", "blue" )( class=cashback.button.class )
         +button( "Как получить кэшбэк", "red" )( class=cashback.button.class )
           +icon( "play", 11, 16, "play" )
+
 
   //- Преимущества кэшбэка
   include ../../sections/advantages/advantages.pug
@@ -144,6 +187,9 @@ block main
             +icon( "fireworks", "32", "32" )
           +text( "Эксклюзивные рекламные интеграции со спонсорами позволяют" +
           " давать нашим клиентам щедрые бонусы и разыгрывать квартиры" )( class=advantages.text.class )
+
+
+
 
   //- Калькулятор
   +wrapper()( class=pageMain.wrapper.class )
@@ -175,7 +221,7 @@ block main
               }
             })
             +wrapper( "p" )( class=calculator.wrapperResult.class )
-              +element( "Выберите сертификат или кэшбэк", "span" )( class=calculator.titleResult.class )
+              +element( "span", "Выберите сертификат или кэшбэк" )( class=calculator.titleResult.class )
               +field-text({
                 title: "Сумма кэшбэка",
                 attrs: {
@@ -196,6 +242,7 @@ block main
               +button( "Получить", "blue" )( class=calculator.button.class )
               +button( "Выбрать квартиру", "blue" )( class=calculator.button.class )
 
+
     //- Вопросы и ответы
     include ../../sections/faq/faq.pug
     +section()( class=faqClass )
@@ -212,7 +259,7 @@ block main
               "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
               +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
               "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
-                +element( "Важно:", "strong" )
+                +element( "strong", "Важно:" )
           +list-item()( class=faq.listItem.class )
             +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
               +title( "<span>Чтобы получить бонус я должен купить у вас?</span>", "h3" )( class=faq.subTitle.class )
@@ -223,7 +270,7 @@ block main
               "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
               +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
               "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
-                +element( "Важно:", "strong" )
+                +element( "strong", "Важно:" )
           +list-item()( class=faq.listItem.class )
             +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
               +title( "<span>Я только ищу квартиру, как мне в будущем гарантированно получить кэшбэк на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
@@ -234,7 +281,7 @@ block main
               "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
               +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
               "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
-                +element( "Важно:", "strong" )
+                +element( "strong", "Важно:" )
           +list-item()( class=faq.listItem.class )
             +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
               +title( "<span>Я только ищу квартиру, как мне в будущем гарантированно получить кэшбэк на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
@@ -245,7 +292,7 @@ block main
               "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
               +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
               "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
-                +element( "Важно:", "strong" )
+                +element( "strong", "Важно:" )
         +form()( class=faq.form.class )
           +fieldset( "Вопрос менеджеру" )
             +field-text({
@@ -256,6 +303,71 @@ block main
               }
             })( class=faq.field.class )
           +button( "Задать вопрос", "transparent" )( class=faq.button.class, type="submit" )
+
+
+  //- Отзывы
+  include ../../sections/reviews/reviews.pug
+  +section()( class=reviewsClass )
+    +wrapper()( class=reviews.container.class )
+      +title( "Отзывы клиентов", "h2" )( class=reviews.title.class )
+      +text( "Мы счастливы, зная на сколько комфортно и приятно жить нашим клиентам в своих новых и светлых квартирах" )( class=reviews.description.class )
+      +list( class=reviews.list.class + " " + sliderClass )
+        +list-item( class=reviews.listItem.class )
+          +wrapper( "article" )( class=reviews.itemCont.class )
+            +wrapper()( class=reviews.itemHeader.class )
+              +video( "video.mp4", "poster.jpg" )
+              +wrapper( "span" )
+                +icon( "play-big", 17, 23, "play")
+            +wrapper()( class=reviews.itemBody.class )
+              +title( "Legenda Дальневосточного", "h3" )( class=reviews.itemTitle.class )
+              +text( "2к-квартира 65,9 м2" )( class=reviews.itemText.class + " " + reviews.itemText.modCharacteristic )
+              +text( "5 493 820 руб (Скидки учтены)" )( class=reviews.itemText.class + " " + reviews.itemText.modDeveloper )
+                +element( "strong", "От застройщика:" )
+              +text( "274 850 руб" )( class=reviews.itemText.class + " " + reviews.itemText.modCashback )
+                +element( "strong", "Кэшбэк от нас:" )
+        +list-item( class=reviews.listItem.class )
+          +wrapper( "article" )( class=reviews.itemCont.class )
+            +wrapper()( class=reviews.itemHeader.class )
+              +video( "video.mp4", "poster.jpg" )
+              +wrapper( "span" )
+                +icon( "play-big", 17, 23, "play")
+            +wrapper()( class=reviews.itemBody.class )
+              +title( "Legenda Дальневосточного", "h3" )( class=reviews.itemTitle.class )
+              +text( "2к-квартира 65,9 м2" )( class=reviews.itemText.class + " " + reviews.itemText.modCharacteristic )
+              +text( "5 493 820 руб (Скидки учтены)" )( class=reviews.itemText.class + " " + reviews.itemText.modDeveloper )
+                +element( "strong", "От застройщика:" )
+              +text( "274 850 руб" )( class=reviews.itemText.class + " " + reviews.itemText.modCashback )
+                +element( "strong", "Кэшбэк от нас:" )
+        +list-item( class=reviews.listItem.class )
+          +wrapper( "article" )( class=reviews.itemCont.class )
+            +wrapper()( class=reviews.itemHeader.class )
+              +video( "video.mp4", "poster.jpg" )
+              +wrapper( "span" )
+                +icon( "play-big", 17, 23, "play")
+            +wrapper()( class=reviews.itemBody.class )
+              +title( "Legenda Дальневосточного", "h3" )( class=reviews.itemTitle.class )
+              +text( "2к-квартира 65,9 м2" )( class=reviews.itemText.class + " " + reviews.itemText.modCharacteristic )
+              +text( "5 493 820 руб (Скидки учтены)" )( class=reviews.itemText.class + " " + reviews.itemText.modDeveloper )
+                +element( "strong", "От застройщика:" )
+              +text( "274 850 руб" )( class=reviews.itemText.class + " " + reviews.itemText.modCashback )
+                +element( "strong", "Кэшбэк от нас:" )
+        +list-item( class=reviews.listItem.class )
+          +wrapper( "article" )( class=reviews.itemCont.class )
+            +wrapper()( class=reviews.itemHeader.class )
+              +video( "video.mp4", "poster.jpg" )
+              +wrapper( "span" )
+                +icon( "play-big", 17, 23, "play")
+            +wrapper()( class=reviews.itemBody.class )
+              +title( "Legenda Дальневосточного", "h3" )( class=reviews.itemTitle.class )
+              +text( "2к-квартира 65,9 м2" )( class=reviews.itemText.class + " " + reviews.itemText.modCharacteristic )
+              +text( "5 493 820 руб (Скидки учтены)" )( class=reviews.itemText.class + " " + reviews.itemText.modDeveloper )
+                +element( "strong", "От застройщика:" )
+              +text( "274 850 руб" )( class=reviews.itemText.class + " " + reviews.itemText.modCashback )
+                +element( "strong", "Кэшбэк от нас:" )
+      +wrapper()( class=slider.controls.class + " " + reviews.controls.class )
+        +arrowPrev( reviews.button.class + " " + reviews.button.modButtonPrev )
+        +dotsContainer( reviews.dots.class )
+        +arrowNext( reviews.button.class + " " + reviews.button.modButtonNext )
 
   //- Подарок
   include ../../sections/present/present.pug
@@ -276,6 +388,7 @@ block main
           })( class=present.field.class )
         +button( "Получить 20 000₽", "blue" )( class=present.button.class type="submit" )
 
+
   //- Вопросы и ответы
   include ../../sections/faq/faq.pug
   +section( "section" )( class=faqServiceClass )
@@ -294,7 +407,7 @@ block main
             "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
             +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
             "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
-              +element( "Важно:", "strong" )
+              +element( "strong", "Важно:" )
         +list-item()( class=faq.listItem.class )
           +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
             +title( "<span>Чтобы получить бонус я должен купить у вас?</span>", "h3" )( class=faq.subTitle.class )
@@ -305,7 +418,7 @@ block main
             "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
             +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
             "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
-              +element( "Важно:", "strong" )
+              +element( "strong", "Важно:" )
         +list-item()( class=faq.listItem.class )
           +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
             +title( "<span>Я только ищу квартиру, как мне в будущем гарантированно получить кэшбэк на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
@@ -316,7 +429,7 @@ block main
             "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
             +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
             "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
-              +element( "Важно:", "strong" )
+              +element( "strong", "Важно:" )
         +list-item()( class=faq.listItem.class )
           +href( false )( class=faq.itemContainer.class + " " + faq.itemContainer.modLink + " " + accordion.link.class, href="#" )
             +title( "<span>Я только ищу квартиру, как мне в будущем гарантированно получить кэшбэк на эту суммму?</span>", "h3" )( class=faq.subTitle.class )
@@ -327,7 +440,8 @@ block main
             "бонус на любую выбранную вами квартиру." )( class=faq.text.class )
             +text( "Кэшбэк и сертификат являются гарантированными для каждого нашего клиента и применяются к любой " +
             "квартире в новостройке, даже если вы нашли квартиру сами" )( class=faq.text.class )
-              +element( "Важно:", "strong" )
+              +element( "strong", "Важно:" )
+
 
   //- Партнеры
   include ../../sections/partners/partners.pug
@@ -356,8 +470,11 @@ block main
         +list-item()( class=partners.listItem.class )
           +wrapper( "figure" )( class=partners.figure.class )
             +image( "partner-lsr.png", "Логотип ЛСР", "Логотип ЛСР" )
-      +wrapper()( class=partners.controls.class + " " + slider.controls.class )
-        +sliderControls()
+      +wrapper()( class=slider.controls.class + " " + partners.controls.class )
+        +arrowPrev( partners.button.modButtonPrev )
+        +dotsContainer( partners.dots.class )
+        +arrowNext( partners.button.modButtonNext )
+
 
   //- Обратная связь
   include ../../sections/feedback/feedback.pug
@@ -376,15 +493,48 @@ block main
           })( class=feedback.field.class )
         +button( "Получить кэшбэк 6%", "blue" )( class=feedback.button.class type="submit" )
 
+
+//- Модальные окна
 block footer
   +logo()( class=pageFooter.logo.class )
-    +image( "logo.svg", "Логотип " + setting.siteName, "Логотип " + setting.siteName, "144", "42" )
+    +image( "logo.svg", "Логотип " + setting.siteName, "Логотип " + setting.siteName, 144, 42 )
   +wrapper( "p" )( class=pageFooter.contacts.class )
-    +element( "улица Название Улицы, 37а", "span" )( class=pageFooter.phrase.class + " " + pageFooter.phrase.modAdress )
+    +element( "span", "улица Название Улицы, 37а" )( class=pageFooter.phrase.class + " " + pageFooter.phrase.modAdress )
     +href( "+7 812 344-20-39" )( class=pageFooter.link.class + " " + pageFooter.link.modPhone, href="tel:+78123442039" )
   +wrapper( "p" )( class=pageFooter.copy.class )
     +href( "Публичная оферта и конфиденциальность" )( class=pageFooter.link.class + " " + pageFooter.link.modPrivacy, href="#" )
-    +element( "&copy; 2017-2019", "span" )( class=pageFooter.phrase.class + " " + pageFooter.phrase.modCopy )
+    +element( "span", "&copy; 2017-2019" )( class=pageFooter.phrase.class + " " + pageFooter.phrase.modCopy )
+
+
+//- Модальные окна
+block modal
+  +button( "Закрыть меню" )( class=modal.closeButton.class )
+  +section()( class=modal.wrapper.class )
+    +title( "Навигационное меню в модальном окне", "h2" )( class=modal.title.class )
+    +logo()( class=modal.logo.class )
+      +image( "logo.svg", "Логотип " + setting.siteName, "Логотип " + setting.siteName, 135, 39 )
+    +list()( class=modal.nav.class )
+      +list-item()
+        +href( "Подбор квартиры" )( href="#" )
+      +list-item()
+        +href( "Наши услуги" )( href="#" )
+      +list-item()
+        +href( "Кэшбэк" )( href="#" )
+      +list-item()
+        +href( "Видео-клиентов" )( href="#" )
+    +form()( class=modal.form.class )
+      +fieldset( "Получить скидку" )
+        +field-text({
+          title: "Получить скидку",
+          attrs: {
+            type: "tel",
+            placeholder: "+7 (___) ___-__-__"
+          }
+        })( class=modal.field.class )
+      +button( "Жду звонка", "blue" )( type="submit" )
+
+
+
 
 block prepend head
 

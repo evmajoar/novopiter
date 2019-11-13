@@ -1,0 +1,33 @@
+//- Все примеси в этом файле должны начинаться c имени блока ( video )
+
+mixin video( video, poster )
+
+  //- Принимает:
+      video  {string} - видео
+
+  //- Вызов:
+      +video( "phonevideo.mp4" )
+
+  -
+    //- класс контсруктора
+    var className = 'video';
+
+    //- текст ошибки
+    var errorMessage = "Не указано имя видео";
+
+    //- список модификаторов
+    var allMods = '';
+    if ( typeof mods !== 'undefined' && mods ) {
+      var modsList = mods.split( ',' );
+      for ( var i = 0; i < modsList.length; i++ ) {
+        allMods = allMods + ' ' + className + '--' + modsList[i].trim();
+      }
+    }
+
+  //- если указано имя изображения
+  if ( typeof video !== 'undefined' && video !== '' && video )
+    video( class=className + allMods, src=setting.videosSrc + video, poster=setting.imagesSrc + poster)
+
+  //- иначе ошибка
+  else
+    p.error=errorMessage.toUpperCase()
