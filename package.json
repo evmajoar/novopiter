@@ -11,7 +11,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.3.0",
     "browser-sync": "^2.26.7",
     "del": "^4.1.1",
     "eslint": "^6.5.1",
@@ -32,8 +32,8 @@
     "gulp-uglify": "^3.0.2",
     "imagemin-webp": "^5.1.0",
     "jquery": "^3.4.1",
-    "webpack": "^4.41.2",
-    "webpack-stream": "^5.2.1"
+    "webpack": "^5.75.0",
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
     "imagemin-mozjpeg": "^8.0.0"
